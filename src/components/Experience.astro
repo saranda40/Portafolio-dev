@@ -1,0 +1,44 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "Actualmente...",
+    title: "Freelance",
+    company: "FreeLance",
+    description:
+      "Actualmente en una pausa para reconectar y tomar nuevas fuerzas. Aprendiendo un poco de todo.",
+    link: "https://github.com/saranda40",
+  },
+  {
+    date: "Noviembre 2016 - Marzo 2025",
+    title: "Jefe de Sistemas",
+    company: "Impotadora Dilaco",
+    description:
+      "Responsable de la plataforma ERP, SQL Develorer, DBA Developer, Desarrollador de Aplicaciones, Integrador de aplicaciones ERP-WMS-TMS.",
+  },
+  {
+    date: "Noviembre 2009 - Septiembre 2016",
+    title: "Analista de Sistemas",
+    company: "Consorcio Periodístico de Chile",
+    description:
+      "Desarrollo de Package para Concurrentes de aplicación Oracle eBs, desarrollo en PLSQL utilizando API de eBs para ingreso de clientes, pedidos de venta, transpaso a FTP, solicitudes internas de compra. Mantencion de aplicaciones en Visual Basic 6.0, desarrollo en PERL, Soporte Signature.",
+  },
+  {
+    date: "Abril 2003 - Octubre 2009",
+    title: "Analista de Sistemas",
+    company: "Empresa Periodística La Nación",
+    description:
+      "Administración ERP People Soft, Desarrollo de aplicaciones en Visual Basic 6.0, .NET, PHP, PLSQL ORACLE, Mysql. de Informes para gerencia, soporte Signature.",
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

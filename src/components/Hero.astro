@@ -1,0 +1,79 @@
+---
+const personalImageAlt = "Sebastián Aranda";
+import Badge from "./Badge.astro";
+import LinkedInIcon from "./icons/LinkedIn.astro";
+import MailIcon from "./icons/Mail.astro";
+import SocialPill from "./SocialPill.astro";
+import GitHubIcon from "./icons/GitHub.astro";
+
+function obtenerSaludo(): string {
+  // Obtener la hora actual
+  const ahora = new Date();
+  const hora = ahora.getHours(); // Devuelve la hora en formato 24 horas (0-23)
+  // Determinar el saludo según la hora
+  if (hora >= 6 && hora < 12) {
+    return "¡Buenos días!";
+  } else if (hora >= 12 && hora < 18) {
+    return "¡Buenas tardes!";
+  } else {
+    return "¡Buenas noches!";
+  }
+}
+
+console.log(obtenerSaludo());
+
+const saludo = obtenerSaludo();
+const nombre = "Sebastián Aranda";
+---
+
+<div class="max-w-4xl mx-auto">
+  <!-- Contenedor principal con Flexbox -->
+  <div class="flex flex-col md:flex-row gap-8 items-center">
+    <!-- Texto a la izquierda -->
+    <div class="flex-1 text-left">
+      <h1 class="text-4xl font-bold tracking-tight text-gray-500 sm:text-5xl">
+        {saludo}, mi nombre es <span class="text-blue-500 dark:text-yellow-200">{nombre}</span>
+      </h1>
+      <p
+        class="mt-4 text-xl text-gray-900 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-600"
+      >
+        +20 años de experiencia. <strong
+          >Administrador de Sistemas ERP, Database Developer, SQL Developer,
+          Desarrollador de Aplicaciones.</strong
+        > de Melipilla, Chile. Especializado en el desarrollo para Integración de
+        sistemas.
+      </p>
+      <nav class="flex flex-wrap gap-4 mt-8">
+        <SocialPill href="mailto:sebastian.aranda.o@gmail.com">
+          <MailIcon class="size-4" />
+          Contáctame
+        </SocialPill>
+        <SocialPill href="https://www.linkedin.com/in/sebastian-aranda-ovalle/">
+          <LinkedInIcon class="size-4" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/saranda40">
+          <GitHubIcon class="size-4" />
+          GitHub
+        </SocialPill>
+      </nav>
+    </div>
+
+    <!-- Imagen a la derecha -->
+    <div class="flex-1 flex justify-end">
+      <img
+        class="rounded-full shadow-lg size-84 object-cover"
+        src="/fotocartoon.png"
+        alt={personalImageAlt}
+      />
+      <a
+        href="https://www.linkedin.com/in/sebastian-aranda-ovalle/"
+        target="_blank"
+        rel="noopener"
+        class="flex items-center transition md:justify-center md:hover:scale-105 ml-4"
+      >
+        <Badge>Disponible para trabajar</Badge>
+      </a>
+    </div>
+  </div>
+</div>

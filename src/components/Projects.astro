@@ -1,0 +1,165 @@
+---
+import GitHub from "./icons/GitHub.astro"
+import Link from "./icons/Link.astro"
+import LinkButton from "./LinkButton.astro"
+import Python from "./icons/Python.astro"
+import JavaScript from "./icons/JavaScript.astro"
+import Iastro from "./icons/Iastro.astro"
+import TypeScript from "./icons/TypeScript.astro"
+import Css from "./icons/Css.astro"
+
+const TAGS = {
+  PYTHON: {
+    name: "Python",
+    class: "bg-black text-white",
+    icon: Python,
+  },
+  JAVASCRIPT: {
+    name: "Javascripts",
+    class: "bg-black text-white",
+    icon: JavaScript,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: JavaScript,
+  },
+  TYPESCRIPT: {
+    name: "TypeScript",
+    class: "bg-black text-white",
+    icon: TypeScript,
+  },
+  ASTRO: {
+    name: "Astro",
+    class: "bg-yellow-500 text-black",
+    icon: Iastro,
+  },
+  NODEJS: {
+    name: "Nodejs",
+    class: "bg-black text-white",
+    icon: JavaScript,
+  },
+  GITHUB: {
+    name: "GitHub",
+    class: "bg-black text-white",
+    icon: GitHub,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-black text-white",
+    icon: Css,
+  },
+}
+const PROJECTS = [
+  {
+    title: "FLORES GIGI",
+    description:
+      "Sitio desarrollado para la venta de Flores Eternas. Desarrollado en Framework Streamlit de Python",
+    link: "",
+    github: "https://github.com/saranda40/gigi",
+    image: "./public/projects/floresgigi.png",
+    tags: [TAGS.PYTHON, TAGS.GITHUB, TAGS.CSS],
+  },
+  {
+    title: "CRM",
+    description:
+      "CRM en Python con PyQt5. Biblioteca para crear aplicaciones de Escritorio.",
+    github: "https://github.com/saranda40/crm",
+    image: "./public/projects/CRM.jpeg",
+    tags: [TAGS.PYTHON, TAGS.GITHUB],
+  },
+  {
+    title: "Gestión de Tareas",
+    description:
+      "Generador de lista de Tareas en Python con tkinter. Biblioteca para crear aplicaciones de Escritorio.",
+    github: "https://github.com/saranda40/tareas",
+    link: "",
+    image: "./public/projects/Todo.jpeg",
+    tags: [TAGS.PYTHON, TAGS.GITHUB],
+  },
+  {
+    title: "Dashboard de Ventas",
+    description:
+      "Dashboard de ventas desarrollado en Streamlit con Python.",
+    link: "",
+    image: "./public/projects/Dashboard.jpeg",
+    tags: [TAGS.PYTHON, TAGS.TAILWIND, TAGS.CSS],
+  },
+  {
+    title: "BackEnd para sitio REP",
+    description:
+      "BackEnd desarrollado en Nodejs y Express para sitio de Responsabilidad Extendida del Productor (REP).",
+    link: "https://github.com/saranda40/tareas",
+    image: "/projects/R-Use.png",
+    tags: [TAGS.PYTHON, TAGS.TAILWIND],
+  },
+  {
+    title: "FrontEnd para sitio de Responsabilidad Extendida del Productor (REP).",
+    description:
+      "Responsabilidad Extendida del Productor (REP).",
+    link: "https://github.com/saranda40/tareas",
+    image: "/projects/R-Use.png",
+    tags: [TAGS.ASTRO, TAGS.TYPESCRIPT, TAGS.TAILWIND],
+  },
+
+  {
+    title: "IAnutri",
+    description:
+      "Una IA te indicará un plan de alimentación semanal según algunos criterios indicados.",
+    link: "https://github.com/saranda40/tareas",
+    image: "/projects/IAnutri.png",
+    tags: [TAGS.ASTRO, TAGS.TYPESCRIPT, TAGS.TAILWIND],
+  },
+]
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+  <div class="w-full md:w-1/2">
+    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+      <img alt="Imagen Proyecto" class="object-cover object-top w-full h-40 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 md:max-w-lg">
+    <h3 class="text-2xl font-bold text-dark dark:text-white">
+      {title}
+    </h3>
+    <div class="flex flex-wrap mt-2">
+      <ul class="flex flex-row mb-2 gap-x-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+      <footer class="flex items-end justify-start mt-4 gap-x-4">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Code
+              
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+    </div>
+  </div>
+</article>
+    ))
+  }
+</div>

@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionContainer from '../components/SectionContainer.astro'
+import Hero from '../components/Hero.astro';
+import Experience from '../components/Experience.astro';
+import TitleSection from '../components/TitleSection.astro';
+import Briefcase from '../components/icons/Briefcase.astro';
+import CodeIcon from '../components/icons/Code.astro';
+import ProfileCheck from '../components/icons/ProfileCheck.astro';
+import Proyects from '../components/Projects.astro';
+import AboutMe from '../components/AboutMe.astro';
+import Coffe from '../components/Coffe.astro';
+---
+
+<Layout title='Portafolio Sebastián Arandas'
+description='Analista de Desarrollo de Sistemas, DBA Progammer'>
+
+<main class="px-4">
+	<SectionContainer class="py-16 md:py-36">
+	   <Hero>
+		</slot>
+	  </Hero>
+	</SectionContainer>
+	<div class="space-y-24">
+		<SectionContainer id="experiencia">
+			<TitleSection>
+			<Briefcase class="size-8" />
+				Experiencia laboral
+			</TitleSection>
+			<Experience />
+		</SectionContainer>
+		<SectionContainer id="proyectos">
+			<TitleSection>
+			  <CodeIcon class="size-7" />
+			  Proyectos
+			</TitleSection>
+			<Proyects />
+		  </SectionContainer>
+	  
+		  <SectionContainer id="sobre-mi">
+			<TitleSection>
+			  <ProfileCheck/>
+				Sobre Mí
+			</TitleSection>
+			<AboutMe />
+		  </SectionContainer>
+
+		  </SectionContainer>
+	</div>
+</main>
+</Layout>
+
+
